@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 21, 2022 lúc 06:11 AM
+-- Máy chủ: localhost
+-- Thời gian đã tạo: Th6 03, 2022 lúc 04:38 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
--- Phiên bản PHP: 7.4.25
+-- Phiên bản PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `mydb`
+-- Cơ sở dữ liệu: `ass2`
 --
 
 -- --------------------------------------------------------
@@ -39,12 +39,11 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `product_price`, `product_img`) VALUES
-(1, 'Samsung Galaxy S20', '$1000', 'S20.jpg'),
-(2, 'Samsung Galaxy A32', '$1100', 'S32.jpg'),
-(3, 'Samsung Galaxy Note 20', '$1200', 'N20.jpg'),
-(4, 'Samsung Galaxy A22', '$900', 'A22.jpg'),
-(5, 'Samsung Galaxy S21', '$1000', 'S21.jpg'),
-(6, 'Samsung Galasy Z Flip 3', '$2000', 'ZF3.jpg');
+(1, 'Optimus Prime', '$169.99', 'm.jpg'),
+(2, 'Hungarian Horntail Dragon', '$49.99', 'r.jpg'),
+(3, 'AT-AT™', '$799.99', 'a.jpg\r\n'),
+(4, 'LEGO® Titanic', '$629.99', 't.jpg'),
+(5, 'Imperial Star Destroyer™', '$699.99', 's.jpg');
 
 -- --------------------------------------------------------
 
