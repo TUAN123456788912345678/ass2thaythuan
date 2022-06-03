@@ -207,7 +207,7 @@
                 <p style="text-align:center;font-size:25px;">Seach Result</p>
                 <div class="product">
                     <?php
-                        $connect = mysqli_connect("localhost","root","","ass2");
+                        $connect = mysqli_connect"3.132.234.157","minhtuan","jinx0902","ass2");
 		                if($connect)
                         {
                             
