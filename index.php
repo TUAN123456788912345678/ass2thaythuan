@@ -4,139 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <style type="text/css">
-        .wrapper {
-            width: 1000px;
-            margin: auto;
-        }
-
-        .header {
-            height: 55px;
-            border: 1px solid black;
-            background-color: lightpink;
-        }
-
-            .header img {
-                width: 125px;
-                height: 55px;
-                float: left;
-            }
-
-        .banner img{
-            width:1000px;
-            height:300px;
-        }
-
-        .form-search {
-            padding-top: 10px;
-        }
-
-            .form-search input[type=text] {
-                width: 300px;
-                height: 30px;
-            }
-
-            .form-search input[type=submit] {
-                height: 30px;
-            }
-
-        .menu {
-            height: 30px;
-            background-color: darkslateblue;
-        }
-
-            .menu ul li {
-                list-style: none;
-                text-align: center;
-                display: inline-block;
-            }
-
-                .menu ul li a {
-                    text-decoration: none;
-                    font-size: 18px;
-                    margin: 30px;
-                    padding: 5px;
-                    text-transform: uppercase;
-                    color: white;
-                }
-
-        .content {
-            height: 1000px;
-        }
-
-        .left {
-            width: 20%;
-            background-color: lightslategray;
-            float: left;
-            height: 800px;
-        }
-
-            .left > p {
-                background-color: white;
-                font-size: 22px;
-                font-family: Arial;
-                text-align: center;
-            }
-
-        .category ul li {
-            list-style: none;
-        }
-
-            .category ul li a {
-                color: white;
-                text-align: center;
-                font-size: 20px;
-                text-decoration: none;
-            }
-
-        .category a:hover {
-            text-decoration: underline;
-        }
-
-        .brand ul li {
-            list-style: none;
-        }
-
-            .brand ul li a {
-                color: white;
-                text-align: center;
-                font-size: 20px;
-                text-decoration: none;
-            }
-
-        .brand a:hover {
-            text-decoration: underline;
-        }
-
-        .right {
-            width: 80%;
-            background-color: lightgreen;
-            float: right;
-            height: 800px;
-        }
-
-            .right > h3 {
-                text-align: center;
-                font-size: 20px;
-            }
-
-        .single-product {
-            margin-left: 30px;
-            float: left;
-        }
-
-            .single-product img {
-                border: 2px solid black;
-            }
-
-        .footer tr td a{
-            text-decoration:none;
-        }
-
-        .welcom p{
-            text-align:right;
-        }
-    </style>
+    
 </head>
 <body style="background-color:black">
     <div class="wrapper">
@@ -206,7 +74,7 @@
             <div class="right">
                 <div class="product">
                     <?php
-                        $connect = mysqli_connect("3.132.234.157","minhtuan","jinx0902","ass2");
+                        $connect = mysqli_connect("3.132.234.157","tuan01","tuan01","123@123a");
 		                if($connect)
                         {
                             
