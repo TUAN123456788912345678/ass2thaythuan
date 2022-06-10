@@ -9,7 +9,7 @@
     <div class="content">
         <div style="float:left">
             <?php
-                $connect = mysqli_connect("3.132.234.157","tuan01","tuan01","123@123a");
+                $connect = mysqli_connect("3.132.234.157","tuan01","123@123a","tuan01");
                 $id= $_GET["id"];
                 $sql= "select * from product where product_id= {$id}";
                 $result= mysqli_query($connect, $sql);

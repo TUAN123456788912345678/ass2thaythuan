@@ -219,7 +219,7 @@
                         </table>
                     </form>
                     <?php
-                        $connect = mysqli_connect("3.132.234.157","tuan01","tuan01","123@123a");
+                        $connect = mysqli_connect(("3.132.234.157","tuan01","123@123a","tuan01");
 		                if($connect)
                         {
                             
