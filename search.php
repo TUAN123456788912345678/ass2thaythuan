@@ -1,5 +1,4 @@
-﻿<?php session_start(); ?>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -23,9 +22,9 @@
                 float: left;
             }
 
-        .banner img {
-            width: 1000px;
-            height: 300px;
+        .banner img{
+            width:1000px;
+            height:300px;
         }
 
         .form-search {
@@ -130,8 +129,12 @@
                 border: 2px solid black;
             }
 
-        .footer tr td a {
-            text-decoration: none;
+        .footer tr td a{
+            text-decoration:none;
+        }
+
+        .welcom p{
+            text-align:right;
         }
     </style>
 </head>
@@ -151,7 +154,19 @@
                 </form>
             </div>
         </div>
-        <div class="banner">
+        <?php
+            session_start();
+            if($_SESSION['username'])
+            {
+                $u= $_SESSION['username'];
+        ?>
+            <div class="welcom">
+                <p>Welcom, <?php echo $u ?></p>
+            </div>
+        <?php
+            }
+        ?>
+       <div class="banner">
             <img src="https://img.freepik.com/free-vector/flat-design-background-christmas-toys_23-2148355805.jpg?w=2000" alt="Slideshow Image 1" />
         </div>
         <div class="menu">
@@ -163,7 +178,7 @@
                 <li><a href="register.php" target="_blank">Register</a></li>
             </ul>
         </div>
-        <div class="content">
+       <div class="content">
             <div class="left">
                 <p>Function</p>
                 <div class="category">
@@ -189,62 +204,41 @@
                 </div>
             </div>
             <div class="right">
+                <p style="text-align:center;font-size:25px;">Seach Result</p>
                 <div class="product">
-                    <form method="POST">
-                        <table align="left">
-                            <tr>
-                                <td>
-                                    <p>Don't have a account?<a href="register.php" target="_blank">Register Here</a></p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><br /></td>
-                            </tr>
-                            <tr>
-                                <td><b>Username:</b></td>
-                                <td><input type="text" name="username" placeholder="Username" required</td>
-                            </tr>
-                            <tr>
-                                <td><b>Password:</b></td>
-                                <td><input type="password" name="password" placeholder="Password" required</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><a href="">Forgot Password</a></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><input type="submit" name="login" value="Login" /></td>
-                            </tr>
-                        </table>
-                    </form>
                     <?php
                         $connect = mysqli_connect("3.132.234.157","tuan01","123@123a","tuan01");
-                    if($connect)
+		                if($connect)
                         {
                             
-                    }
-                    else
+		                }
+		                else
                         {
-                      echo "Connect failed!";
-                    }
-                        if(isset($_POST["login"]))
+			                echo "Connect Failed!";
+		                }
+                        if (isset($_GET['search']))
                         {
-                            $username= $_POST['username'];
-                            $password= $_POST['password'];
-                            $sql= "select * from user where username= '$username' and password= '$password'";
-                            $result= mysqli_query($connect, $sql);
-                            $row= mysqli_num_rows($result);
-                            if($row>0)
-                            {
-                                echo "<script>alert('Login successfully!')</script>";
-                                $_SESSION['username']= $username;
-                                echo"<script> window.open('index.php', '_self')</script>";
-                            }
-                            else
-                            {
-                                echo "<script>alert('Login failed!')</script>";
-                            }
+                            $search= $_GET['user_query'];
+                        }
+                    ?>
+                    <h3><?php $search ?></h3>
+                    <?php 
+                        $sql= "select * from product where product_name like '%{$search}%'";
+                        $result= mysqli_query($connect, $sql);
+                        while($row_product= mysqli_fetch_array($result))
+                        {
+                            $product_id= $row_product['product_id'];
+                            $product_name= $row_product['product_name'];
+                            $product_price= $row_product['product_price'];
+                            $product_image= $row_product['product_img'];
+                    ?>
+                                <div class="single-product">
+                                    <h3><?php echo $product_name; ?></h3>
+                                    <img src="X/<?php echo $product_image; ?>" width="180px" height="180px" />
+                                    <p><b>Price: <?php echo $product_price; ?></b></p>
+                                    <a href="" style="color:snow; text-decoration:none">Detail</a>
+                                </div>
+                    <?php
                         }
                     ?>
                 </div>
@@ -275,5 +269,8 @@
             </table>
         </div>
     </div>
+    <?php
+        
+    ?>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -166,7 +166,7 @@
         <?php
             }
         ?>
-       <div class="banner">
+        <div class="banner">
             <img src="https://img.freepik.com/free-vector/flat-design-background-christmas-toys_23-2148355805.jpg?w=2000" alt="Slideshow Image 1" />
         </div>
         <div class="menu">
@@ -178,7 +178,7 @@
                 <li><a href="register.php" target="_blank">Register</a></li>
             </ul>
         </div>
-       <div class="content">
+        <div class="content">
             <div class="left">
                 <p>Function</p>
                 <div class="category">
@@ -204,7 +204,6 @@
                 </div>
             </div>
             <div class="right">
-                <p style="text-align:center;font-size:25px;">Seach Result</p>
                 <div class="product">
                     <?php
                         $connect = mysqli_connect("3.132.234.157","tuan01","123@123a","tuan01");
@@ -216,26 +215,19 @@
                         {
 			                echo "Connect Failed!";
 		                }
-                        if (isset($_GET['search']))
-                        {
-                            $search= $_GET['user_query'];
-                        }
-                    ?>
-                    <h3><?php $search ?></h3>
-                    <?php 
-                        $sql= "select * from product where product_name like '%{$search}%'";
+                        $sql="select * from product";
                         $result= mysqli_query($connect, $sql);
-                        while($row_product= mysqli_fetch_array($result))
+                        while($row= mysqli_fetch_array($result))
                         {
-                            $product_id= $row_product['product_id'];
-                            $product_name= $row_product['product_name'];
-                            $product_price= $row_product['product_price'];
-                            $product_image= $row_product['product_img'];
+                            $row['product_id'];
+                            $row['product_name'];
+                            $row['product_price'];
+                            $row['product_img'];
                     ?>
                                 <div class="single-product">
-                                    <h3><?php echo $product_name; ?></h3>
-                                    <img src="X/<?php echo $product_image; ?>" width="180px" height="180px" />
-                                    <p><b>Price: <?php echo $product_price; ?></b></p>
+                                    <h3><?php echo $row['product_name']; ?></h3>
+                                    <img src="X/<?php echo $row['product_img']; ?>" width="180px" height="180px" />
+                                    <p><b>Price: <?php echo $row['product_price']; ?></b></p>
                                     <a href="" style="color:snow; text-decoration:none">Detail</a>
                                 </div>
                     <?php
@@ -250,21 +242,6 @@
                     <th>LY Sponcer</th>
                     <th>Someone Brand</th>
                     <th>NF</th>
-                </tr>
-                <tr>
-                    <td><a href="">Homepage</a></td>
-                    <td><a href="">Blog</a></td>
-                    <td><a href="">Facebook</a></td>
-                </tr>
-                <tr>
-                    <td><a href="">Contact</a></td>
-                    <td><a href="">Contact</a></td>
-                    <td><a href="">Contact</a></td>
-                </tr>
-                <tr>
-                    <td>111, Bà Triệu, Hà Nội</td>
-                    <td>112, Bà Triệu, Hà Nội</td>
-                    <td>113, Bà Triệu, Hà Nội</td>
                 </tr>
             </table>
         </div>
