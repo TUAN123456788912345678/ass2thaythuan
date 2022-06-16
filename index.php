@@ -72,30 +72,39 @@
                 </div>
             </div>
             <div class="right">
+                 <div class="right">
+                <p style="text-align:center;font-size:25px;">Seach Result</p>
                 <div class="product">
                     <?php
                         $connect = mysqli_connect("3.132.234.157","tuan01","123@123a","tuan01");
-		                if($connect)
+                        if($connect)
                         {
                             
-		                }
-		                else
+                        }
+                        else
                         {
-			                echo "Connect Failed!";
-		                }
-                        $sql="select * from product";
+                            echo "Connect Failed!";
+                        }
+                        if (isset($_GET['search']))
+                        {
+                            $search= $_GET['user_query'];
+                        }
+                    ?>
+                    <h3><?php $search ?></h3>
+                    <?php 
+                        $sql= "select * from product where product_name like '%{$search}%'";
                         $result= mysqli_query($connect, $sql);
-                        while($row= mysqli_fetch_array($result))
+                        while($row_product= mysqli_fetch_array($result))
                         {
-                            $row['product_id'];
-                            $row['product_name'];
-                            $row['product_price'];
-                            $row['product_img'];
+                            $product_id= $row_product['product_id'];
+                            $product_name= $row_product['product_name'];
+                            $product_price= $row_product['product_price'];
+                            $product_image= $row_product['product_img'];
                     ?>
                                 <div class="single-product">
-                                    <h3><?php echo $row['product_name']; ?></h3>
-                                    <img src="X/<?php echo $row['product_img']; ?>" width="180px" height="180px" />
-                                    <p><b>Price: <?php echo $row['product_price']; ?></b></p>
+                                    <h3><?php echo $product_name; ?></h3>
+                                    <img src="X/<?php echo $product_image; ?>" width="180px" height="180px" />
+                                    <p><b>Price: <?php echo $product_price; ?></b></p>
                                     <a href="" style="color:snow; text-decoration:none">Detail</a>
                                 </div>
                     <?php
