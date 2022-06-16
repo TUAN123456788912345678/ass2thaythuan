@@ -1,130 +1,94 @@
 ﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style type="text/css">
+   body{
+      margin: auto;
+      background-color: rgb(214, 248, 248);
+      background-image: url(https://mir-s3-cdn-cf.behance.net/projects/404/c484cb93479947.Y3JvcCw4MDgsNjMyLDAsMA.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
     
+    }
+   .resignter{
+    
+     padding: 25px;
+     background-color: white;
+     border: 1px solid rgb(209, 208, 208);
+     border-radius:8px;
+   }
+   .table{
+     width: 500px;
+     margin: auto;
+     transform: translateY(150%);
+     background-color: #ffff;
+     padding: 20px 0;
+     border-radius: 8px;
+   }
+   .dk{
+     text-align: center;
+     margin: 0;
+     color: black;
+    }
+   .form-input{
+     width: 70%;
+     border-radius: 2px;
+     padding: 3px;
+   }
+  </style>
 </head>
-<body style="background-color:black">
-    <div class="wrapper">
-        <div class="header">
-            <img src="https://brademar.com/wp-content/uploads/2022/05/LEGO-Logo-PNG-1998-–-Now-2.png" />
-            <a href="">
-              <div class="cart">
-                  <img style="float:right" id="cart" src="X/cart.png" />
-              </div>
-            </a>
-            <div class="form-search">
-                <form method="GET" action="search.php">
-                    <input type="text" name="user_query" placeholder="Search" />
-                    <input type="submit" name="search" value="Search" />
-                </form>
-            </div>
-        </div>
-        <?php
-            session_start();
-            if($_SESSION['username'])
-            {
-                $u= $_SESSION['username'];
-        ?>
-            <div class="welcom">
-                <p>Welcom, <?php echo $u ?></p>
-            </div>
-        <?php
-            }
-        ?>
-        <div class="banner">
-            <img src="https://img.freepik.com/free-vector/flat-design-background-christmas-toys_23-2148355805.jpg?w=2000" alt="Slideshow Image 1" />
-        </div>
-        <div class="menu">
-            <ul>
-                <li><a href="index.php" target="_blank">Homepage</a></li>
-                <li><a href="#" target="_blank">Information</a></li>
-                <li><a href="#" target="_blank">Contact</a></li>
-                <li><a href="login.php" target="_blank">Login</a></li>
-                <li><a href="register.php" target="_blank">Register</a></li>
-            </ul>
-        </div>
-        <div class="content">
-            <div class="left">
-                <p>Function</p>
-                <div class="category">
-                    <ul>
-                        <li><a href="addproduct.php" target="_blank">Add Product</a></li>
-                    </ul>
-                </div>
-                <p>Product</p>
-                <div class="category">
-                    <ul>
-                        <li><a href="">Dolls</a></li>
-                        <li><a href=""target="_blank">LEGO</a></li>
-                        <li><a href="">Puzzles</a></li>
-                    </ul>
-                </div>
-                <p>Brand</p>
-                <div class="brand">
-                    <ul>
-                        <li><a href="">Lego</a></li>
-                        <li><a href="">Bandai Namco</a></li>
-                        <li><a href="">Barbie</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="right">
-                 <div class="right">
-                <p style="text-align:center;font-size:25px;">Seach Result</p>
-                <div class="product">
-                    <?php
-                        $connect = mysqli_connect("3.132.234.157","tuan01","123@123a","tuan01");
-                        if($connect)
-                        {
-                            
-                        }
-                        else
-                        {
-                            echo "Connect Failed!";
-                        }
-                        if (isset($_GET['search']))
-                        {
-                            $search= $_GET['user_query'];
-                        }
-                    ?>
-                    <h3><?php $search ?></h3>
-                    <?php 
-                        $sql= "select * from product where product_name like '%{$search}%'";
-                        $result= mysqli_query($connect, $sql);
-                        while($row_product= mysqli_fetch_array($result))
-                        {
-                            $product_id= $row_product['product_id'];
-                            $product_name= $row_product['product_name'];
-                            $product_price= $row_product['product_price'];
-                            $product_image= $row_product['product_img'];
-                    ?>
-                                <div class="single-product">
-                                    <h3><?php echo $product_name; ?></h3>
-                                    <img src="X/<?php echo $product_image; ?>" width="180px" height="180px" />
-                                    <p><b>Price: <?php echo $product_price; ?></b></p>
-                                    <a href="" style="color:snow; text-decoration:none">Detail</a>
-                                </div>
-                    <?php
-                        }
-                    ?>
-                </div>
-            </div>
-        </div>
-        <div class="footer" style="background-color:aquamarine">
-            <table style="width:500px">
-                <tr>
-                    <th>LY Sponcer</th>
-                    <th>Someone Brand</th>
-                    <th>NF</th>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <?php
-        
-    ?>
+<body>
+
+        <a href="index.php"><img src="https://pbs.twimg.com/media/EiOLaYbX0AA5S6S.jpg" width="100" height="100" /></a>
+<form method="POST">
+  <div class="register">
+    <table class="table">
+      <tr>
+        <td class="dk">userid:</td>
+        <td><input type="text" class="form-input" placeholder="usersid" name="usersid"></td>
+      </tr>
+      <tr>
+        <td class="dk">username:</td>
+        <td><input type="text" class="form-input" placeholder="usersname" name="usersname"></td>
+      </tr>
+      <tr>
+        <td class="dk">PASSWORD</td>
+        <td><input type="password" class="form-input" placeholder="password" name="password"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit" name="register" value="register"></td>
+      </tr>
+    </table>
+  </div>
+</form>
+  <?php 
+    $connect =mysqli_connect("3.132.234.157","tuan01","123@123a","tuan01");
+    if($connect){
+      echo "kết nối thành công";
+    }
+    else{
+        echo"Kết nối thất bại";
+    }
+    if(isset($_POST['register'])){
+      echo "ok";
+      $usersid = $_POST['usersid'];
+      $usersname= $_POST['usersname'];
+      $password= $_POST['password'];
+      $sql ="INSERT INTO users VALUES('3.132.234.157","tuan01","123@123a","tuan01')";
+      $result= mysqli_Query($connect,$sql);
+    if($result){
+      echo "<br>";
+      echo "<script> alert('thêm mới thành công')</script>";
+      header("location: dangnhap.php");
+    }
+    else{
+      echo "<script> alert('thêm mới thất bại')</script>";
+    }
+  }
+  ?>
 </body>
 </html>
