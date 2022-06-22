@@ -1,5 +1,4 @@
-﻿<?php session_start(); ?>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -193,28 +192,35 @@
                     <form method="POST">
                         <table align="left">
                             <tr>
+                                <td><b>Register:</b></td>
+                            </tr>
+                            <tr>
+                                <td><br /></td>
+                            </tr>
+                            <tr>
                                 <td>
-                                    <p>Don't have a account?<a href="register.php" target="_blank">Register Here</a></p>
+                                    Already have account?
+                                    <a href="login.php" target="_blank">Login Now.</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td><br /></td>
                             </tr>
                             <tr>
+                                <td><b>User ID:</b></td>
+                                <td><input type="text" name="user_id" size="50" placeholder="User ID" /></td>
+                            </tr>
+                            <tr>
                                 <td><b>Username:</b></td>
-                                <td><input type="text" name="username" placeholder="Username" required</td>
+                                <td><input type="text" name="username" size="50" placeholder="Username" /></td>
                             </tr>
                             <tr>
                                 <td><b>Password:</b></td>
-                                <td><input type="password" name="password" placeholder="Password" required</td>
+                                <td><input type="password" name="password" size="50" placeholder="Password" /></td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><a href="">Forgot Password</a></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><input type="submit" name="login" value="Login" /></td>
+                                <td><input type="submit" name="register" value="Register" style="background-color:deepskyblue; color:snow; width:80px; height:30px" /></td>
                             </tr>
                         </table>
                     </form>
@@ -228,22 +234,21 @@
                         {
                       echo "Connect failed!";
                     }
-                        if(isset($_POST["login"]))
+                        if(isset($_POST["register"]))
                         {
+                            $user_id= $_POST['user_id'];
                             $username= $_POST['username'];
                             $password= $_POST['password'];
-                            $sql= "select * from user where username= '$username' and password= '$password'";
+                            $sql= "insert into user values ('$user_id', '$username', '$password')";
                             $result= mysqli_query($connect, $sql);
-                            $row= mysqli_num_rows($result);
-                            if($row>0)
+                            if($result)
                             {
-                                echo "<script>alert('Login successfully!')</script>";
-                                $_SESSION['username']= $username;
-                                echo"<script> window.open('index.php', '_self')</script>";
+                                echo"<script>alert('Register successfully!')</script>";
+                                echo"<script> window.open('login.php', '_self')</script>";
                             }
                             else
                             {
-                                echo "<script>alert('Login failed!')</script>";
+                                echo"<script>alert('Register failed!')</script>";
                             }
                         }
                     ?>
