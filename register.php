@@ -240,6 +240,7 @@
                             $username= $_POST['username'];
                             $password= $_POST['password'];
                             $sql= "insert into user values ('$user_id', '$username', '$password')";
+                            mysqli_set_charset($connect, 'UTF8');
                             $result= mysqli_query($connect, $sql);
                             if($result)
                             {
