@@ -243,6 +243,7 @@
                     </form>
                     <?PHP
                         $connect = mysqli_connect("3.132.234.157","tuan01","123@123a","tuan01");
+			mysqli_set_charset($connect, 'UTF8');
 		                if($connect)
                         {
             
